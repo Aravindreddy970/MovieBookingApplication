@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.moviebookingapp.controller.MovieAppControllerTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 21.645 s <<< FAILURE! - in com.moviebookingapp.controller.MovieAppControllerTest
+getAllMoviesAndFound  Time elapsed: 0.037 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<302> but was:<200>
+	at com.moviebookingapp.controller.MovieAppControllerTest.getAllMoviesAndFound(MovieAppControllerTest.java:72)
+

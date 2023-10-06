@@ -22,10 +22,10 @@ public class JwtUtils {
     @Value("${movieapp.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
-/*generateJwtToken() method takes Authentication object as a argument which represents the current user's authentication 
-information. It retrieves the user details from the Authentication object , specially the username, and it uses to build
-the jwt token.the token includes subject(username),issuedAt date(current date),expiration date(current date+jwtExpirationMs)
-and is signed using the jwtSecret. */  
+/*generateJwtToken() method takes Authentication object as a argument which represents the current
+user's authentication information. It retrieves the user details from the Authentication object ,
+specially the username, and it uses to build the jwt token.the token includes subject(username),
+issuedAt date(current date),expiration date(current date+jwtExpirationMs) and is signed using the jwtSecret. */
     
     
     public String generateJwtToken(Authentication authentication) {
@@ -40,17 +40,17 @@ and is signed using the jwtSecret. */
                 .compact();
     }
 
-/*the getUserNameFromJwtToken method takes a jwt token as a paramter and parses it to extract the subject(username) from 
- * the token's claim. It uses the jwtSecret to verify the token's signature.*/    
+/*the getUserNameFromJwtToken method takes a jwt token as a paramter and parses it to extract the
+subject(username) from  the token's claim. It uses the jwtSecret to verify the token's signature.*/
     
     public String getUserNameFromJwtToken(String token) {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
     }
     
     
-/*the validateJwtToken method takes a JWT token as a parameter and validates its authenticity and integrity.It uses the
- *  jwtSecret to verify the token's signature. if the token is successfully parse without any exceptions, it means the token
- *  is valid otherwise it shows the exception*/
+/*the validateJwtToken method takes a JWT token as a parameter and validates its authenticity t
+and integrity.It uses the jwtSecret to verify the token's signature. if the token is successfully
+parse without any exceptions, it means the token is valid otherwise it shows the exception*/
     
     public boolean validateJwtToken(String authToken) {
         try {

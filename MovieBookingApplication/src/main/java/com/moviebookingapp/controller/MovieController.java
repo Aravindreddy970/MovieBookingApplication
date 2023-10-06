@@ -1,5 +1,6 @@
 package com.moviebookingapp.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -40,6 +41,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.extern.slf4j.Slf4j;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1.0/moviebooking")
 @OpenAPIDefinition(info = @Info(title = "Movie Application API",
@@ -62,35 +64,23 @@ public class MovieController {
 	@Autowired
 	private UserDetailsServiceImpl userDetailsService;
 
-	@Autowired
-	private KafkaTemplate<String, Object> kafkaTemplate;
+//	@Autowired
+//	private KafkaTemplate<String, Object> kafkaTemplate;
+//
+//	@Autowired
+//	private NewTopic topic;
 
-	@Autowired
-	private NewTopic topic;
 
-	@PutMapping("/{loginId}/forgot")
-	@SecurityRequirement(name = "Bearer Authentication")  //endpoint requires authentication using the Bearer Authentication
-	@Operation(summary = "reset password")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-	public ResponseEntity<String> changePassword(@RequestBody LoginRequest loginRequest, @PathVariable String loginId) {
-		log.debug("forgot password endopoint accessed by " + loginRequest.getLoginId());
-		Optional<User> user1 = userRepository.findByLoginId(loginId);
-		User availableUser = user1.get();
-		User updatedUser = new User(loginId, availableUser.getFirstName(), availableUser.getLastName(),
-				availableUser.getEmail(), availableUser.getContactNumber(),
-				passwordEncoder.encode(loginRequest.getPassword()));
-		updatedUser.set_id(availableUser.get_id());
-		updatedUser.setRoles(availableUser.getRoles());
-		userRepository.save(updatedUser);
-		log.debug(loginRequest.getLoginId() + " has password changed successfully");
-		return new ResponseEntity<>("Users password changed successfully", HttpStatus.OK);
-	}
+
+
+
 
 	@GetMapping("/all")
 	@SecurityRequirement(name = "Bearer Authentication")
 	@Operation(summary = "search all movies")
 //    @PreAuthorize("hasRole('USER')or hasRole('ADMIN')")
 	public ResponseEntity<List<Movie>> getAllMovies() {
+
 		log.debug("here u can access all the available movies");
 		List<Movie> movieList = movieService.getAllMovies();
 		if (movieList.isEmpty()) {
@@ -99,6 +89,7 @@ public class MovieController {
 		} else {
 			log.debug("listed the available movies");
 //			return new ResponseEntity<>(movieList, HttpStatus.FOUND);
+
 			return new ResponseEntity<>(movieList, HttpStatus.OK);
 		}
 	}
@@ -150,7 +141,7 @@ public class MovieController {
 		if (!availableMovies.isEmpty() && availableMovies.get(0).getNoOfTicketsAvailable() >= ticket.getNoOfTickets()) {
 			movieService.saveTicket(ticket);
 			log.debug(ticket.getLoginId() + " booked " + ticket.getNoOfTickets() + " tickets");
-			kafkaTemplate.send(topic.name(), "Movie ticket booked. " + "Booking Details are: " + ticket);
+//			kafkaTemplate.send(topic.name(), "Movie ticket booked. " + "Booking Details are: " + ticket);
 
 			//it updates the available tickets counts
 			int availableTickets = availableMovies.get(0).getNoOfTicketsAvailable() - ticket.getNoOfTickets();
@@ -207,10 +198,29 @@ public class MovieController {
 			}
 			movieService.saveMovie(movies);
 		}
-		kafkaTemplate.send(topic.name(), "tickets status upadated by the Admin for movie " + movieName);
+//		kafkaTemplate.send(topic.name(), "tickets status upadated by the Admin for movie " + movieName);
 		return new ResponseEntity<>("Ticket status updated successfully", HttpStatus.OK);
 
 	}
+
+	@PutMapping("/{loginId}/forgot")
+	@SecurityRequirement(name = "Bearer Authentication")  //endpoint requires authentication using the Bearer Authentication
+	@Operation(summary = "reset password")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	public ResponseEntity<String> changePassword(@RequestBody LoginRequest loginRequest, @PathVariable String loginId) {
+		log.debug("forgot password endopoint accessed by " + loginRequest.getLoginId());
+		Optional<User> user1 = userRepository.findByLoginId(loginId);
+		User availableUser = user1.get();
+		User updatedUser = new User(loginId, availableUser.getFirstName(), availableUser.getLastName(),
+				availableUser.getEmail(), availableUser.getContactNumber(),
+				passwordEncoder.encode(loginRequest.getPassword()));
+		updatedUser.set_id(availableUser.get_id());
+		updatedUser.setRoles(availableUser.getRoles());
+		userRepository.save(updatedUser);
+		log.debug(loginRequest.getLoginId() + " has password changed successfully");
+		return new ResponseEntity<>("Users password changed successfully", HttpStatus.OK);
+	}
+
 
 	@DeleteMapping("/{movieName}/delete")
 	@SecurityRequirement(name = "Bearer Authentication")
@@ -222,7 +232,7 @@ public class MovieController {
 			throw new MoviesNotFound("No movies Available with moviename " + movieName);
 		} else {
 			movieService.deleteByMovieName(movieName);
-			kafkaTemplate.send(topic.name(), "Movie Deleted by the Admin. " + movieName + " is now not available");
+//			kafkaTemplate.send(topic.name(), "Movie Deleted by the Admin. " + movieName + " is now not available");
 			return new ResponseEntity<>("Movie deleted successfully", HttpStatus.OK);
 		}
 

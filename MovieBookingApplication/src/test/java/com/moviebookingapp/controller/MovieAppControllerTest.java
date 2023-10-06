@@ -56,22 +56,6 @@ public class MovieAppControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-//    @Test
-//    void getAllMoviesAndFound() throws Exception {
-//        authenticateUser();
-//        List<Movie> movies = new ArrayList<>();
-//        Movie movie1 = new Movie("Movie 1", "Theatre 1", 120, "Book now");
-//        Movie movie2 = new Movie("Movie 2", "Theatre 2", 150, "Book now");
-//        movies.add(movie1);
-//        movies.add(movie2);
-//
-//        when(movieService.getAllMovies()).thenReturn(movies);
-        // Use MockMvc to send a GET request to the /api/v1.0/moviebooking/all endpoint using the mockmvc
-        // expects the response status of 200 ok when movies are found
-//        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1.0/moviebooking/all"))
-//                .andExpect(status().isFound());
-   // }
-
     @Test
     public void testGetMovieByNameAndFound() throws Exception {
         authenticateUser();

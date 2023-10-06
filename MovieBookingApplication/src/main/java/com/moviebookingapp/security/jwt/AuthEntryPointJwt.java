@@ -26,6 +26,7 @@ public class AuthEntryPointJwt implements AuthenticationEntryPoint {
 
 }
 
-//this class is responsible for handling unauthenticated requests and returning unauthenticated requests and returning
-//an unappropriate error response.it logs an error mgs and sends an HTTP response with a 401 status code to indicate the
-//unauthorized access.When a user tries to access a protected resource without proper authentication, the commence() method is called.
+//this class is responsible for handling unauthenticated requests and returning unauthenticated
+// requests and returning an unappropriate error response.it logs an error mgs and sends an
+// HTTP response with a 401 status code to indicate the unauthorized access.When a user tries
+// to access a protected resource without proper authentication, the commence() method is called.

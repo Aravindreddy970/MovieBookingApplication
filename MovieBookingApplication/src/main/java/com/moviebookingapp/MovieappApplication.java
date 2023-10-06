@@ -61,12 +61,6 @@ public class MovieappApplication implements CommandLineRunner {
 		movieList.add(new Movie("Bahubali","INOX",122,"Book ASAP"));
 		movieList.add(new Movie("Batman","PVR",7,"Book ASAP"));
 
-//		Movie movie1 = new Movie("Avengers:Endgame","PVR",126,"Book ASAP");
-//	 	Movie movie2 = new Movie("Harry Potter","INOX",122,"Book ASAP");
-////	 	Movie movie3 = new Movie("Batman","PVR",107,"Book ASAP");
-//	 	Movie movie3 = new Movie("Batman","PVR",7,"Book ASAP");
-
-	 	//movieRepository.saveAll(List.of(movie1,movie2,movie3));
 		 movieRepository.saveAll(movieList);
 
 		Role admin = new Role(ERole.ROLE_ADMIN);
@@ -74,9 +68,17 @@ public class MovieappApplication implements CommandLineRunner {
 
 		roleRepository.saveAll(List.of(admin,user));
 	}
-	
-	
 
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("*");
+			}
+		};
+	}
 	
 	
 	

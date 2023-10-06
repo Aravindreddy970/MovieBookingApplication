@@ -1,0 +1,13 @@
+
+V	java:S107("AConstructor has 8 parameters, which is greater than 7 authorized.(ğ Ôä
+h	java:S116"NRename this field "_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³ÿ€àùÿÿÿÿ
+k
+java:S1206w"PThis class overrides "equals()" and should therefore also override "hashCode()".(İ¢êÍıÿÿÿÿ
+b	java:S100L"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·¹O
+h	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ¶ÌÁúÿÿÿÿ
+C
+java:S1068"-Remove this unused "firstName" private field.(š„¦¿
+G
+java:S1068",Remove this unused "lastName" private field.(ºàÑïúÿÿÿÿ
+F
+java:S1068#"1Remove this unused "contactNumber" private field.(¯÷ºY

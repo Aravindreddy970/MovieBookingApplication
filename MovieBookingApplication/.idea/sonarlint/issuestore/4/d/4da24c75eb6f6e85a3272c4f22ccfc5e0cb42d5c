@@ -1,0 +1,14 @@
+
+f
+java:S1301f"KReplace this "switch" statement by "if" statements to increase readability.(—×·Çøÿÿÿÿ
+@
+java:S5411S"*Use the primitive boolean expression here.(Œ‰ÓŒ
+a
+java:S2259f"FA "NullPointerException" could be thrown; "strRoles" is nullable here.(—×·Çøÿÿÿÿ
+<
+java:S1452:"&Remove usage of generic wildcard type.(—­è€
+a
+java:S1612E"KReplace this lambda with method reference 'GrantedAuthority::getAuthority'.(Ð×«ë
+A
+java:S1452N"&Remove usage of generic wildcard type.(éã°éúÿÿÿÿ
+<	java:S131f""Add a default case to this switch.(—×·Çøÿÿÿÿ

@@ -1,0 +1,18 @@
+
+K
+java:S3655Õ"4Call "user1.isPresent()" before accessing the value.(‚ö½§
+X	java:S125D"<This block of commented-out lines of code should be removed.(É§»Ó8÷Ôíò¯1
+V	java:S125["<This block of commented-out lines of code should be removed.(ô±€§úÿÿÿÿ
+V
+java:S4684u"@Replace this persistent entity with a simple POJO or DTO object.(¹à—Ý
+O	java:S106ˆ"9Replace this use of System.out or System.err by a logger.(Œó¼Ý
+T	java:S106‰"9Replace this use of System.out or System.err by a logger.(ôË˜ûÿÿÿÿ
+^	java:S125"<This block of commented-out lines of code should be removed.(¢ßåÉüÿÿÿÿ8´¨îò¯1
+V
+java:S4684¤"@Replace this persistent entity with a simple POJO or DTO object.(äéöR
+]
+java:S1854¿"ARemove this useless assignment to local variable "ticketsBooked".(…Öç’ûÿÿÿÿ
+N
+java:S1481¿"2Remove this unused "ticketsBooked" local variable.(…Öç’ûÿÿÿÿ
+^	java:S125É"<This block of commented-out lines of code should be removed.(©Ôèüÿÿÿÿ8˜ƒïò¯1
+^	java:S125ë"<This block of commented-out lines of code should be removed.(ÉêÝõøÿÿÿÿ8öýìò¯1

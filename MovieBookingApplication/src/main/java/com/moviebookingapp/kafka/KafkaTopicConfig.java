@@ -10,14 +10,14 @@ import org.springframework.kafka.core.KafkaAdmin;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class KafkaTopicConfig {
 
     @Value(value = "${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
 
-    //kafkaAdmin method creates and configure a kafkaAdmin bean.the kafkaAdmin class is provided by spring kafka and is used
-    //for administrative operations on kafka clusters.
+    //kafkaAdmin method creates and configure a kafkaAdmin bean.the kafkaAdmin class is provided by
+    // spring kafka and is used for administrative operations on kafka clusters.
     @Bean
     public KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();

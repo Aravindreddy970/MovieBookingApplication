@@ -13,7 +13,7 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class KafkaProducerConfig {
 
     @Value(value = "${spring.kafka.bootstrap-servers}")
@@ -35,5 +35,5 @@ public class KafkaProducerConfig {
 
 }
 
-//the kafkaTemplate method creates and configure a 'KafkaTemplate' bean and uses the producerFactory() method to obtain the 
-//producerFactory and constructs a new kafkaTemplate with it.
+//the kafkaTemplate method creates and configure a 'KafkaTemplate' bean and uses the producerFactory() method to
+// obtain the producerFactory and constructs a new kafkaTemplate with it.

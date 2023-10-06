@@ -1,0 +1,17 @@
+
+h
+java:S3305"RInject this field value directly into "filterChain", the only method that uses it.(†€Ú³
+x
+java:S3305"]Inject this field value directly into "authenticationProvider", the only method that uses it.(³ò×‡üÿÿÿÿ
+“
+java:S4601A"xReorder the URL patterns from most to less specific, the pattern "/api/v1.0/moviebooking/**" should occurs before "/**".(±¸Îœùÿÿÿÿ
+
+java:S4601C"kReorder the URL patterns from most to less specific, the pattern "/v3/api-docs" should occurs before "/**".(‰í®õ
+†
+java:S4601D"kReorder the URL patterns from most to less specific, the pattern "/v2/api-docs" should occurs before "/**".(‹Ã°¿øÿÿÿÿ
+
+java:S4601E"tReorder the URL patterns from most to less specific, the pattern "/swagger-resources/**" should occurs before "/**".(çˆ§’üÿÿÿÿ
+ˆ
+java:S4601F"mReorder the URL patterns from most to less specific, the pattern "/swagger-ui/**" should occurs before "/**".(é¶şÎÿÿÿÿÿ
+…
+java:S4601G"jReorder the URL patterns from most to less specific, the pattern "/webjars/**" should occurs before "/**".(ÂğÖùûÿÿÿÿ

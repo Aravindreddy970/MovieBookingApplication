@@ -29,13 +29,13 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
 
-/*the doFilterInternal method is responsible for processing the incoming HTTP request and extracting the JWT token from the 
- * request header. Inside this validateJwtToken method of the jwtUtils object is used to check the validity of the token. 
+/*the doFilterInternal method is responsible for processing the incoming HTTP request and extracting the JWT token from
+ *  the request header. Inside this validateJwtToken method of the jwtUtils object is used to check the validity of the token.
  * if the token is present and it's valid then the username is extracted using the getUserNameFromJwtToken method
- * 
- * the loadUserByUsername method of the userDetailsService object is called to retrieve the user details . once the userdetails
- * are obtained , an UsernamePasswordAuthenticationToken object is created with the user details, null credentials , and
- * authroities from the user details. the authentication token is then set using the setAuthentication method*/    
+ * the loadUserByUsername method of the userDetailsService object is called to retrieve the user details .
+ *  once the userdetails  are obtained , an UsernamePasswordAuthenticationToken object is created with the user
+ * details, null credentials , and authroities from the user details. the authentication token
+ *  is then set using the setAuthentication method*/
     
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
